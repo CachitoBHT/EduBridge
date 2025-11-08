@@ -1,0 +1,707 @@
+/* Underline on hover */
+.underline-hover {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.25rem;
+}
+
+.underline-hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.underline-hover:hover::after {
+  width: 100%;
+}
+
+/* 字符数提示 */
+.char-count {
+  font-size: 0.85rem;
+  color: var(--bs-secondary);
+  text-align: right;
+  margin-top: 0.25rem;
+}
+
+/* 表单反馈信息 */
+.alert-custom-success,
+.alert-custom-error {
+  color: white;
+  border-radius: var(--bs-border-radius);
+  padding: 1rem 1.25rem;
+  margin-top: 1.5rem;
+  font-weight: 500;
+}
+
+.alert-custom-success {
+  background-color: var(--bs-success);
+}
+
+.alert-custom-error {
+  background-color: var(--bs-danger);
+}
+
+/* 通用段落布局区块 */
+.section {
+  padding: 4rem 0;
+}
+.section-alt {
+  background-color: var(--bs-info);
+}
+
+.section-title-lg {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--bs-secondary);
+  line-height: 1.6;
+}
+
+/* ------Header & Footer------ */
+/* =============== Header =============== */
+/* Mobile Menu Styles */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1050;
+  pointer-events: none;
+  visibility: hidden;
+  transition: visibility 0s linear 0.3s;
+}
+
+.mobile-menu.active {
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.mobile-menu-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height: 100%;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  padding-top: 3rem;
+  background-color: var(--bs-light);
+}
+.mobile-menu-content hr {
+  margin: 0.5rem 0;
+  border-width: 1px 0 0 0; 
+}
+
+.mobile-menu.active .mobile-menu-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu.active .mobile-menu-content {
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.mobile-menu-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: var(--bs-primary);
+}
+
+/* Navbar Link Styles */
+.nav-link {
+  position: relative;
+  padding-bottom: 0.25rem;
+}
+
+.navbar-nav > li:last-child .nav-link::after {
+  display: none;
+}
+
+/* Remove underline from button */
+.navbar-nav > li:last-child .nav-link::after {
+  display: none;
+}
+
+/* Logo image sizing */
+.logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+}
+
+.logo-img {
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.08);
+}
+
+
+/* Toggler icon */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%230046A3' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  width: 1.5em;
+  height: 1.5em;
+}
+
+/* Ensure text colors */
+.text-primary {
+  color: var(--bs-primary) !important;
+}
+.text-accent {
+  color: var(--bs-warning) !important;
+} 
+
+/* =============== Footer =============== */
+/* Footer Divider */
+.footer-divider {
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(to right, var(--bs-info), var(--bs-light));
+  opacity: 0.4;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  width: 44px;
+  height: 44px;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+.back-to-top:hover {
+  background-color: #e69500;
+  transform: scale(1.05);
+}
+
+/* Reference list spacing */
+.reference-list {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive back-to-top (hide on mobile) */
+@media (max-width: 576px) {
+  .back-to-top {
+    display: none !important;
+  }
+}
+
+/* ----------------------------------------------------------------------------*/
+
+/* === Hero Section === */
+.hero-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.hero-image-wrapper {
+  background-color: var(--bs-info);
+  padding: 2rem;
+  border-radius: 0.75rem;
+  display: inline-block;
+}
+
+/* CTA Button Animation */
+.cta-btn {
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #e6951e;
+  transform: scale(1.03);
+}
+
+/* Fade Up Animation */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: none;
+}
+
+/* === Section 2: Emotional Intro Block === */
+.bg-section-alt {
+  background-color: var(--bs-info);
+}
+
+.intro-text-wrapper {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-label {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.intro-text p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--bs-secondary);
+}
+
+.intro-text strong {
+  color: var(--bs-dark);
+}
+
+/* 卡片轮播区域 */
+.carousel-frame {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* 保持图片完整 */
+.object-fit-contain {
+  object-fit: contain;
+}
+
+/* 悬停浮动动效 */
+.transition-hover {
+  transition: all 0.3s ease;
+}
+.transition-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 按钮 hover 高亮 */
+.btn-warning:hover {
+  background-color: #e69500;
+  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.3);
+}
+
+/* 卡片标题和副标题 */
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.card-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.quote-banner {
+  background: linear-gradient(90deg, #003876, #0046A3);
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  position: relative;
+}
+
+.quote-text {
+  max-width: 900px;
+  margin: 0 auto;
+  font-style: italic;
+}
+
+/* Quote banner */
+.quote-text p {
+  font-size: 2.5rem; /* 或使用 display-5 */
+  line-height: 1.5;
+}
+
+.blockquote-footer {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* =================== Information Page ========================*/
+/* === Info Hero Section === */
+.info-hero-image-wrapper {
+  max-width: 800px;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  background-color: var(--bs-info);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  display: inline-block;
+}
+
+.info-hero-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  object-fit: contain;
+}
+
+/* === Statistics Section === */
+.stats-section {
+  background-color: var(--bs-info);
+}
+
+.stat-card {
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stat-img {
+  width: 100%;
+  border-radius: var(--bs-border-radius);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  object-fit: contain;
+}
+
+.stats-image-wrapper {
+  background-color: #fff;
+  border-radius: var(--bs-border-radius);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* === Journey Section === */
+/* ===== Journey Section 特有样式 ===== */
+.journey-card-content {
+  transition: var(--bs-transition);
+  position: relative;
+}
+
+.journey-section .card:hover .journey-card-content {
+  background-color: var(--bs-primary);
+  color: white;
+}
+
+/* 微光效果 - 仅journey section需要 */
+.journey-section .card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 70%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+.journey-section .card:hover::before {
+  opacity: 1;
+  animation: shine 1.5s ease forwards;
+}
+
+@keyframes shine {
+  0% { transform: rotate(30deg) translate(-30%, -30%); }
+  100% { transform: rotate(30deg) translate(30%, 30%); }
+}
+
+/* 内容放大效果 */
+.journey-section .card:hover .card-text {
+  transform: scale(1.02);
+  transition: transform 0.3s ease 0.1s;
+}
+
+/* ===== 交互式数据标签 ===== */
+.impact-stats {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  transition: var(--bs-transition);
+}
+
+.stat-badge {
+  background: rgba(255, 163, 54, 0.2);
+  color: var(--bs-warning);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  transition: var(--bs-transition);
+  display: inline-block;
+}
+
+.journey-section .card:hover .stat-badge {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ===== 保持原有比较滑块样式 ===== */
+.img-compare-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  margin: 0 auto;
+}
+
+.compare-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  user-select: none;  /* 禁止文字/图片选中 */
+  -webkit-user-drag: none; /* 禁止图片拖拽 (Safari) */
+}
+
+.compare-after {
+  clip-path: inset(0 0 0 50%);
+  position: absolute;
+  z-index: 1;
+}
+
+.compare-slider {
+  position: absolute; 
+  z-index: 2;
+}
+
+.compare-slider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: var(--bs-primary);
+  z-index: 3;
+  cursor: ew-resize;
+  transform: translateX(-2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.2s ease;
+}
+
+.compare-slider:hover {
+  background: var(--bs-warning);
+  width: 6px;
+}
+
+.compare-icon {
+  color: white;
+  background: var(--bs-primary);
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  transition: all 0.2s ease;
+}
+
+.compare-slider:hover .compare-icon {
+  background: var(--bs-warning);
+  transform: scale(1.1);
+}
+
+
+/* chatbox Section */
+/* ===== 聊天容器 ===== */
+.chat-container {
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: var(--bs-border-radius);
+  background-color: var(--bs-info);
+}
+
+/* ===== 消息样式 ===== */
+.message {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.message.left {
+  justify-content: flex-start;
+}
+
+.message.right {
+  justify-content: flex-end;
+}
+
+/* 头像 - 使用现有.logo-img样式 */
+.avatar {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%; /* 确保头像本身是圆形 */
+  border: 2px solid var(--bs-primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加轻微阴影增强立体感 */
+  transition: var(--bs-transition);
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 气泡基础样式 */
+.bubble {
+  max-width: 70%;
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--bs-border-radius);
+  box-shadow: var(--bs-card-shadow);
+  transition: var(--bs-transition);
+}
+
+/* 左侧消息气泡 */
+.message.left .bubble {
+  background-color: #fff6d8;
+  border-top-left-radius: 0;
+}
+
+/* 右侧消息气泡 */
+.message.right .bubble {
+  background-color: #e1f5fe;
+  color: var(--bs-secondary);
+  border-top-right-radius: 0;
+}
+
+/* 文本样式 - 使用现有.text-primary等 */
+.name {
+  display: block;
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.message.left .name {
+  color: var(--bs-primary);
+}
+
+.message.right .name {
+  color: #01579b;
+}
+
+.text {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 打字效果 - 新增 */
+.typing {
+  position: relative;
+}
+
+.typing::after {
+  content: "|";
+  animation: blink 0.7s infinite;
+  position: absolute;
+  right: -5px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* 头像选择 - 新增 */
+.avatar-option img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: var(--bs-transition);
+}
+
+.avatar-option.selected img {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+/* ========== Hope Section Optimized Styles ========== */
+.hope-intro {
+  max-width: 50rem; /* 使用rem单位替代px */
+}
+
+.hope-card {
+  --card-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.08);
+  --img-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.08);
+  background: #fff;
+  overflow: hidden;
+}
+
+.hope-float-img {
+  width: 16.25rem; /* 260px转换为rem */
+  border-radius: 0.75rem;
+  object-fit: cover;
+  box-shadow: var(--img-shadow);
+  display: block; /* 添加默认display属性 */
+}
+
+/* 引用区块统一样式 */
+.hope-quote,
+.hope-highlight {
+  padding: 0.75rem 1rem;
+  border-left: 0.25rem solid var(--bs-primary);
+  font-style: italic;
+  color: var(--bs-dark);
+  background-color: var(--bs-info);
+}
+
+.hope-highlight {
+  border-left-color: var(--bs-info);
+  background-color: rgba(13, 202, 240, 0.1); /* 使用半透明色 */
+}
+
+/* 响应式布局优化 */
+@media (max-width: 767.98px) {
+  .hope-float-img {
+    width: 100%;
+    max-width: 16.25rem;
+    margin: 0 auto 1rem;
+    float: none;
+  }
+  
+  .hope-card {
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.05);
+  }
+}
+
+
